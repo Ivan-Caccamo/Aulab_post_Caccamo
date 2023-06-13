@@ -35,7 +35,7 @@
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#" 
             onclick="
-            event.preventDeFault();
+            event.preventDefault();
             document.querySelector('#form-logout').submit();
             "
             >
