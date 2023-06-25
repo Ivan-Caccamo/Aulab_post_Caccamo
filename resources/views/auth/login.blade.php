@@ -5,6 +5,7 @@
    <h1>Registrati:</h1>
   </div>
   <div class="card-body">
+    
   <form action="{{route('login')}}" method="POST">
     @csrf
 

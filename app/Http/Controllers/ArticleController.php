@@ -20,7 +20,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('article.create');
     }
 
     /**
@@ -28,7 +28,16 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        
+        Article::create([
+            'title' => $request->title,
+            'subtitle' => $request->subtitle,
+            'body' => $request->body,
+            'image' => $request->file('image')->store('public/images'),
+            'user_id' => Auth::user()->id,
+            'category_id' => $request->category,
+        ]);
     }
 
     /**
@@ -63,3 +72,5 @@ class ArticleController extends Controller
         //
     }
 }
+
+
