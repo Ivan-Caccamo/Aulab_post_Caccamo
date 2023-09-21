@@ -1,20 +1,11 @@
 <x-layout>
 
-    <div class="container-fluid p-5 bg-success text-center text-white">
-     <div class="row justify-content-center">
-     <div class="col-lg-12 display-1">
-        <h1>The Ivan's Post</h1>
-    </div>
-
-    <div>
-        @if (session('status'))
-        <div class="alert alert-success" role="alert">
-            {{session('status')}}
-        </div>
-        @endif
-    </div>
-
     <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <h1>Lista degli articoli</h1>
+            </div>
+        </div>
         <div class="row">
             @foreach ($articles as $article)
                 <div class="card" style="width: 18rem;">
@@ -25,7 +16,7 @@
                         <p class="small text-muted">Redatto da {{$article->user->name}}</p>
                         <a class="small text-muted"href="{{route('article.byCategory',['category'=>$article->category->id])}}" style="text-decoration:none">{{$article->category->name}}</a>
                         <p class="small text-muted">Il {{$article->created_at->format('d/m/y')}}</p>
-                        <a href="{{route('article.show',compact('article'))}}" class="btn btn-primary">Leggi</a>
+                        <a href="{{route('article.show', compact('article'))}}" class="btn btn-primary">Leggi</a>
                     </div>
                 </div>
             @endforeach

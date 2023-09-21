@@ -13,6 +13,17 @@
           <a class="nav-link" href="#">Link</a>
         </li>
 
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Categorie
+          </a>
+          <ul class="dropdown-menu">
+            @foreach ($categories as $category)
+            <li><a class="dropdown-item" href="{{route('article.byCategory', compact('category'))}}">{{$category->name}}</a></li>
+            @endforeach          
+          </ul>
+        </li>
+
         @guest
 
         <li class="nav-item">

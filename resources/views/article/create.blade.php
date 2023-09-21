@@ -6,7 +6,7 @@
     <div class="card-body">
     </div>
 
-    <form action="{{route('article.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('article.store')}}" method="POST" class="m-5" enctype="multipart/form-data">
         @csrf
 
 
@@ -29,9 +29,9 @@
         <div class="mb-3">
             <label for="exampleInputCategory1" class="form-label">Categoria</label>
             <Select name="category" id="category" class="form-control">
-            @foreach($categories as $category)
-                <option value="{{category->id}}">{{$category->name}}</option>
-            @endforeach
+                @foreach($categories as $category)
+                    <option value="{{$category->id}}">{{$category->name}}</option>
+                @endforeach
 
             </select>
             @error('category')
@@ -55,7 +55,7 @@
             @enderror
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Carica articolo</button>
 
     </form>
 

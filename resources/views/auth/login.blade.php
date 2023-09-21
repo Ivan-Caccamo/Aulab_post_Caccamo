@@ -2,7 +2,7 @@
 
 <div class="m-5">
   <div class="card-header">
-   <h1>Registrati:</h1>
+   <h1>Login:</h1>
   </div>
   <div class="card-body">
     
@@ -31,7 +31,7 @@
     <input type="checkbox" name="remember">
 </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Accedi</button>
 
 </form>
 </div>
