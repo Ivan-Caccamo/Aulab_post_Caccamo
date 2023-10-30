@@ -2,7 +2,8 @@
 
     <h1>Dashboard Admin</h1>
 
-    <requests-table :roleRequests="$revisorRequests" role="revisore"/>
-    <requests-table :roleRequests="$writerRequests" role="writer"/>
+    <x-request-table :roleRequests="$adminRequests" role="admin"/>
+    <x-request-table :roleRequests="$revisorRequests" role="revisor"/>
+    <x-request-table :roleRequests="$writerRequests" role="writer"/>
 
 </x-layout>

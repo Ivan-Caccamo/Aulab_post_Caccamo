@@ -31,4 +31,9 @@ Route::get('/careers/submit', [PublicController::class, 'careersSubmit'])->middl
 
 Route::prefix('admin')->middleware('is_admin')->group(function () {
     Route::get('/dashboard',[AdminController::class, 'dashboard'])->name('admin.dashboard');
+
+    Route::get('/{user}/set-admin',[AdminController::class, 'setAdmin'])->name('admin.setAdmin');
+    Route::get('/{user}/set-revisor',[AdminController::class, 'setRevisor'])->name('admin.setRevisor');
+    Route::get('/{user}/set-writer',[AdminController::class, 'setWriter'])->name('admin.setWriter');
+
 });
