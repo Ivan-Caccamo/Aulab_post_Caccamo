@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ArticleController;
 
@@ -24,3 +25,10 @@ Route::get('/article/index', [ArticleController::class, 'index'])->name('article
 Route::get('/article/show/{article}',[ArticleController::class, 'show'])->name('article.show');
 
 Route::get('/article/category/{category}',[ArticleController::class, 'byCategory'])->name('article.byCategory');
+
+Route::get('/careers', [PublicController::class, 'careers'])->middleware('auth')->name('careers');
+Route::get('/careers/submit', [PublicController::class, 'careersSubmit'])->middleware('auth')->name('careers.submit');
+
+Route::prefix('admin')->middleware('is_admin')->group(function () {
+    Route::get('/dashboard',[AdminController::class, 'dashboard'])->name('admin.dashboard');
+});

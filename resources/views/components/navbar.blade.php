@@ -19,7 +19,7 @@
           </a>
           <ul class="dropdown-menu">
             @foreach ($categories as $category)
-            <li><a class="dropdown-item" href="{{route('article.byCategory', compact('category'))}}">{{$category->name}}</a></li>
+            <li><a class="dropdown-item" href="{{route('article.byCategory',compact('category'))}}">{{$category->name}}</a></li>
             @endforeach          
           </ul>
         </li>
@@ -41,7 +41,7 @@
             {{Auth::user()->name}}
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="{{route('careers')}}">Lavora con noi</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#" 
