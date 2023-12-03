@@ -42,7 +42,15 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="{{route('careers')}}">Lavora con noi</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
+
+            @if (Auth::user()->is_admin)
+              <li><a class="dropdown-item" href="{{route('admin.dashboard')}}">Dashboard Admin</a></li>
+            @endif
+
+            @if (Auth::user()->is_revisor)
+              <li><a class="dropdown-item" href="{{route('revisor.dashboard')}}">Dashboard Revisor</a></li>
+            @endif
+
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#" 
             onclick="

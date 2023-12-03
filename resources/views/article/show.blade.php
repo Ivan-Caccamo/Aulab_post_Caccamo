@@ -13,7 +13,13 @@
     <h5 class="card-title">{{$article->subtitle}}</h5>
     <img src="{{Storage::url($article->image)}}" alt="...">
     <p class="card-text">{{$article->body}}</p>
+
     <a href="{{route('article.index')}}" class="btn btn-primary">Torna indietro</a>
+    @if(Auth::user() && Auth::user()->is_revisor)
+    <hr>
+    <a href="{{route('revisor.acceptArticle',compact('article'))}}" class="btn btn-success text-white">Accetta articolo</a>
+    <a href="{{route('revisor.rejectArticle',compact('article'))}}" class="btn btn-danger text-white">Rifiuta articolo</a>
+    @endif
   </div>
   <div class="card-footer text-muted">
     {{$article->created_at->format('d/m/y')}}
