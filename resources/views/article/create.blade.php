@@ -55,6 +55,12 @@
             @enderror
         </div>
 
+        <div class="mb-3">
+            <label for="exampleInputBody1" class="form-label">Tags : </label>
+            <input type="text" name="tags" value="{{old('tags')}} class="form-control">
+            <span>Inserisci i tags separati da virgola</span>
+        </div>
+
         <button type="submit" class="btn btn-primary">Carica articolo</button>
 
     </form>

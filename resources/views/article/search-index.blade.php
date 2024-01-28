@@ -1,20 +1,11 @@
 <x-layout>
 
-    <div class="container-fluid p-5 bg-success text-center text-white">
-     <div class="row justify-content-center">
-     <div class="col-lg-12 display-1">
-        <h1>The Ivan's Post</h1>
-    </div>
-
-    <div>
-        @if (session('status'))
-        <div class="alert alert-success" role="alert">
-            {{session('status')}}
-        </div>
-        @endif
-    </div>
-
     <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <h1>Risultati per la ricerca : {{$query}}</h1>
+            </div>
+        </div>
         <div class="row">
             @foreach ($articles as $article)
                 <div class="card" style="width: 18rem;">
@@ -28,14 +19,8 @@
                         @else
                         <p class="small text-muted">Articolo senza categoria</p>
                         @endif
-                        <p class="small text-muted">
-
-                            @foreach ($article->tags as $tag)
-                             {{$tag->name}}
-                            @endforeach
-                        </p>
                         <p class="small text-muted">Il {{$article->created_at->format('d/m/y')}}</p>
-                        <a href="{{route('article.show',compact('article'))}}" class="btn btn-primary">Leggi</a>
+                        <a href="{{route('article.show', compact('article'))}}" class="btn btn-primary">Leggi</a>
                     </div>
                 </div>
             @endforeach

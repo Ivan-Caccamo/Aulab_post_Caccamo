@@ -161,6 +161,8 @@ return [
          */
 
          App\Providers\FortifyServiceProvider::class,
+         TeamTNT\Scout\TntSearchScoutServiceProvider::class,
+         Laravel\Scout\ScoutServiceProvider::class,
         /*
          * Application Service Providers...
          */

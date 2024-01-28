@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
 use App\Models\User;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 
@@ -39,6 +41,57 @@ class AdminController extends Controller
         ]);
         return redirect(route('admin.dashboard'))->with('status','Utente abilitato correttamente');
 
+    }
+
+    public function editTag(Tag $tag, Request $request){
+
+      $request->validate([
+        'name'=>'required|unique:table,tags',
+      ]);
+
+      $tag->update([
+        'name' =>strtolower($request->name),
+      ]);
+      return redirect(route('admin.dashboard'))->with('status','Tag modificato correttamente');
+    }
+
+    public function deleteTag(Tag $tag){
+
+        foreach($tag->articles as $article){
+            $article->tags()->detach($tag);
+        }
+
+        $tag->delete();
+        return redirect(route('admin.dashboard'))->with('status','Tag modificato correttamente');
+    }
+
+    public function editCategory(Category $category, Request $request){
+
+        $request->validate([
+            'name'=>'required|unique:categories',
+        ]);
+
+        $category->update([
+            'name'=>strtolower($request->name),
+        ]);
+        return redirect(route('admin.dashboard'))->with('status','Categoria modificata correttamente');
+    }
+
+    public function deleteCategory(Category $category){
+        foreach($category->articles as $article){
+            $article->update([
+                'category_id'=>NULL,
+            ]);
+        }
+        $category->delete();
+        return redirect(route('admin.dashboard'))->with('status','Categoria modificata correttamente');
+    }
+    
+    public function createCategory(Request $request){
+        Category::updateOrCreate([
+            'name'=>strtolower($request->name),
+        ]);
+        return redirect(route('admin.dashboard'))->with('status','Categoria creata correttamente');
     }
 
 }

@@ -5,7 +5,11 @@
             <div class="card text-center">
   <div class="card-header">
     Redatto da : {{$article->user->name}}
+    @if($article->category)
     <a class="small text-muted"href="{{route('article.byCategory',['category'=>$article->category->id])}}" style="text-decoration:none">{{$article->category->name}}</a>
+    @else
+    <p class="small text-muted">Articolo senza categoria</p>
+    @endif
 
   </div>
   <div class="card-body">
