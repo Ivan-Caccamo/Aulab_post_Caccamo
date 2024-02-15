@@ -15,6 +15,7 @@
   <div class="card-body">
     <h4 class="card-title">{{$article->title}}</h5>
     <h5 class="card-title">{{$article->subtitle}}</h5>
+    <p class="small text-muted">Tempo di lettura : {{$article->readDuration()}} min</p>
     <img src="{{Storage::url($article->image)}}" alt="...">
     <p class="card-text">{{$article->body}}</p>
 

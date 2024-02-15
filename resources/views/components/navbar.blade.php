@@ -1,3 +1,4 @@
+use Illuminate\Support\Facades\Auth;
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="{{route('welcome')}}">The Ivan's Post</a>
@@ -9,9 +10,9 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{{route('welcome')}}">The Ivan's Post</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
+        @if (Auth::user()&&Auth::user()->is_writer)
+        <li class="nav-item"><a class="nav-link" href="{{route('article.create')}}">Crea articolo</a></li>
+            @endif
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -49,6 +50,10 @@
 
             @if (Auth::user()->is_revisor)
               <li><a class="dropdown-item" href="{{route('revisor.dashboard')}}">Dashboard Revisor</a></li>
+            @endif
+
+            @if (Auth::user()->is_writer)
+              <li><a class="dropdown-item" href="{{route('writer.dashboard')}}">Dashboard Writer</a></li>
             @endif
 
             <li><hr class="dropdown-divider"></li>
