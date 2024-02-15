@@ -57,7 +57,7 @@
 
         <div class="mb-3">
             <label for="exampleInputBody1" class="form-label">Tags : </label>
-            <input type="text" name="tags" value="{{old('tags')}} class="form-control">
+            <input type="text" name="tags" value="{{old('tags')}}" class="form-control">
             <span>Inserisci i tags separati da virgola</span>
         </div>
 

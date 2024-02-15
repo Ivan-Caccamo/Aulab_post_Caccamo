@@ -1,4 +1,3 @@
-use Illuminate\Support\Facades\Auth;
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="{{route('welcome')}}">The Ivan's Post</a>

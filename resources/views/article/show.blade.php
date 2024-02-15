@@ -1,6 +1,6 @@
 <x-layout>
 <div class="container mt-5">
-        <div class="row">
+        <div class="row justify-content-around">
             <div class="col-12">
             <div class="card text-center">
   <div class="card-header">
